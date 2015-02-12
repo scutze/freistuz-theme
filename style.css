@@ -63,6 +63,7 @@ figcaption,
 figure,
 footer,
 header,
+header2,
 main,
 menu,
 nav,
@@ -357,6 +358,19 @@ html {
 body {
 	background: #fff; /* Fallback for when there is no custom background color defined. */
 }
+
+.primary { /* The main content flow */
+	
+}
+
+.secondary { /* The second col with sidebar and widgets */
+
+}
+
+.post {
+
+}
+
 
 blockquote:before,
 blockquote:after,
