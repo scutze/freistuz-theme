@@ -383,6 +383,9 @@ big {
 	font-size: 12px;
 	font-family: 'Ubuntu-B';
 }
+#colophon {
+	font-size: 10px;
+}
 
 /*--------------------------------------------------------------
 3.0 Elements
@@ -461,13 +464,19 @@ body {
 	margin-bottom: 0;
 }
 
+#colophon {
+	width: 100%;
+	text-align: center;
+}
+
+/*
 @media screen and (max-width 600px) {
 	#masthead {
 		width: 100%;
 		clear: both;
 	}
 }
-
+*/
 
 
 .post, article.page {
@@ -627,10 +636,13 @@ a {
 	color: #666666;
 	text-decoration: none;
 }
-
+.post a, .page a {
+	text-decoration: underline;
+}
 .entry-title a,
 .entry-meta a,
-.tags-links a  {
+.tags-links a,
+.widget a  {
 	text-decoration: none;
 }
 .entry-title a {
@@ -640,7 +652,8 @@ a {
 	color: gray;
 }
 
-a:visited {
+
+a:visited, .widget a {
 	color: #222222;
 }
 .entry-meta a:visited {

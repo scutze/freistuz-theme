@@ -39,6 +39,5 @@ get_header();
 		<?php endif; ?>
 
 		</main><!-- #main -->
+		<?php get_footer(); ?>
 	</section><!-- #primary -->
-
-<?php get_footer(); ?>
