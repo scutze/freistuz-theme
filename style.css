@@ -653,11 +653,8 @@ a {
 }
 
 
-a:visited, .widget a {
+.widget a {
 	color: #222222;
-}
-.entry-meta a:visited {
-	color: gray;
 }
 
 a:hover,
