@@ -266,15 +266,45 @@ th {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Hoefler';
+    src: url('http://localhost/~scutze/wordpress/wp-content/themes/freistuz-theme/fonts/HoeflerText.ttf') 
+    	 format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DejaVu';
+    src: url('http://localhost/~scutze/wordpress/wp-content/themes/freistuz-theme/fonts/Dejavu.ttf') 
+    	 format('truetype');
+   	font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Ubuntu-R';
+    src: url('http://localhost/~scutze/wordpress/wp-content/themes/freistuz-theme/fonts/Ubuntu-R.ttf') 
+    	 format('truetype');
+   	font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Ubuntu-B';
+    src: url('http://localhost/~scutze/wordpress/wp-content/themes/freistuz-theme/fonts/Ubuntu-B.ttf') 
+    	 format('truetype');
+   	font-weight: bold;
+    font-style: normal;
+}
+
 body,
 button,
 input,
 select,
 textarea {
 	color: #404040;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 1.5;
+	font-size: 13px;
+	line-height: 1.9;
+	font-family: 'DejaVu', 'Tahoma', sans-serif;
 }
 
 h1,
@@ -342,9 +372,40 @@ big {
 	font-size: 125%;
 }
 
+.entry-title {
+	font-family: 'Ubuntu-B', 'DejaVu', 'Tahoma', 'Verdana', sans-serif
+}
+
+#secondary {
+	font-size: 12px;
+}
+#secondary .widget-title {
+	font-size: 12px;
+	font-family: 'Ubuntu-B';
+}
+
 /*--------------------------------------------------------------
 3.0 Elements
 --------------------------------------------------------------*/
+
+/* Taken from twentyfifteen theme
+ *
+ * Fixes the sidebar
+ */
+body:before {
+	background-color: #fff;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+	content: "";
+	display: block;
+	height: 100%;
+	min-height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 29.4118%;
+	z-index: 0; /* Fixes flashing bug with scrolling on Safari */
+}
+
 html {
 	box-sizing: border-box;
 }
@@ -356,21 +417,74 @@ html {
 }
 
 body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
+	background: #dddddd; /* Fallback for when there is no custom background color defined. */
 }
 
-.primary { /* The main content flow */
-	
+#masthead { /* The Logo and description */
 }
 
-.secondary { /* The second col with sidebar and widgets */
+#sidebar { /* The second col with sidebar and widgets */
+	top: 0px;
+	position: relative;
+	float: left;
+	width: 29.4118%;
+	margin-right: -100%;
 
+	min-height:100%;
+	max-width: 400px;
+	background: #fff;
+	font-size: 90%;
+	padding: 1.5em 3% 4em 5%;
+	/* border-right: 1px solid #cccccc; */
 }
 
-.post {
-
+#content { /* The main content flow */
+	float: right;
+	width: 65%;
+	padding: 4em 5% 0 0;
 }
 
+.site-logo, .site-branding {
+	padding: 2em 10% 1.5em 5%;
+}
+
+.site-branding {
+	font-size: 80%;
+}
+.site-description {
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.site-title {
+	margin-bottom: 0;
+}
+
+@media screen and (max-width 600px) {
+	#masthead {
+		width: 100%;
+		clear: both;
+	}
+}
+
+
+
+.post, article.page {
+	padding: 4em 12% 4em 12%;
+	margin-bottom: 5em;
+	background: #fff;
+
+	text-align: justify;
+}
+
+.entry-meta {
+	color:gray;
+	font-style: italic;
+}
+
+.comments-link {
+}
 
 blockquote:before,
 blockquote:after,
@@ -393,11 +507,13 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 0;
+	padding: 0 0 0 1.5em;
 }
 
 ul {
 	list-style: disc;
+	line-height: 2em;
 }
 
 ol {
@@ -407,7 +523,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: .5em;
 }
 
 dt {
@@ -508,17 +624,37 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #666666;
+	text-decoration: none;
+}
+
+.entry-title a,
+.entry-meta a,
+.tags-links a  {
+	text-decoration: none;
+}
+.entry-title a {
+	color: #222222;
+}
+.entry-meta a, .tags-links a {
+	color: gray;
 }
 
 a:visited {
-	color: purple;
+	color: #222222;
+}
+.entry-meta a:visited {
+	color: gray;
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #52B474;
+}
+
+.entry-meta a:hover {
+	color: #222222;
 }
 
 a:focus {
@@ -535,7 +671,7 @@ a:active {
 --------------------------------------------------------------*/
 .main-navigation {
 	clear: both;
-	display: block;
+	display: none;
 	float: left;
 	width: 100%;
 }
@@ -605,6 +741,8 @@ a:active {
 	display: none;
 }
 
+/* Responsiveness */
+
 @media screen and (max-width: 600px) {
 	.menu-toggle,
 	.main-navigation.toggled .nav-menu {
@@ -615,6 +753,8 @@ a:active {
 		display: none;
 	}
 }
+
+
 
 .site-main .comment-navigation,
 .site-main .posts-navigation,

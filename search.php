@@ -5,7 +5,7 @@
  * @package _s
  */
 
-get_header(); ?>
+get_header(); 
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -41,5 +41,4 @@ get_header(); ?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
